@@ -15,7 +15,7 @@ export function startServer(publishMessage, port) {
   const wss = new WebSocketServer({ server })
 
   let browserSocket = null
-
+// faced error on thid 
   wss.on('connection', (ws) => {
     console.log('Browser connected')
     browserSocket = ws
@@ -27,6 +27,8 @@ export function startServer(publishMessage, port) {
   })
 
   function sendToBrowser(text) {
+    console.log('DEBUG: sendToBrowser called with:', text)
+  console.log('DEBUG: browserSocket is:', browserSocket ? 'SET' : 'NULL')
     if (browserSocket) {
       browserSocket.send(text)
     }

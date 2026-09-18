@@ -19,6 +19,8 @@ console.log('My peer ID:', node.peerId.toString())
 let sendToBrowserRef = null
 
 const { publishMessage } = startChat(node, options, (msg) => {
+     console.log('DEBUG: onMessageReceived fired with:', msg)
+  console.log('DEBUG: sendToBrowserRef is:', sendToBrowserRef ? 'SET' : 'NULL')
   if (sendToBrowserRef) sendToBrowserRef(msg)
 })
 

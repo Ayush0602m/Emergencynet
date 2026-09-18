@@ -6,7 +6,8 @@ function App() {
   const wsRef = useRef(null)
 
   useEffect(() => {
-    const ws = new WebSocket('ws://localhost:3000')
+    // const ws = new WebSocket('ws://localhost:3000') error
+    const ws = new WebSocket(`ws://${window.location.hostname}:${window.location.port}`)
     wsRef.current = ws
 
     ws.onmessage = (event) => {
